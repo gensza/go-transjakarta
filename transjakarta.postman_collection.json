@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "50b5ed41-9bb3-4f1c-94f7-1a7315edb638",
+		"name": "transjakarta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13029874",
+		"_collection_link": "https://nominal-0566.postman.co/workspace/nominal-Workspace~9257ae2a-13cc-4116-adc0-6a6408e2dead/collection/13029874-50b5ed41-9bb3-4f1c-94f7-1a7315edb638?source=collection_link"
+	},
+	"item": [
+		{
+			"name": "ping",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtYWRnZW5zemF2ZXJuYW5kb0BnbWFpbC5jb20iLCJleHAiOjE3NjU0MjcxMzQsInJvbGVfaWQiOiIxIiwidXNlcmlkIjoiMzMwMyIsInVzZXJuYW1lIjoibW9oYW1hZGdlbnN6YXZlcm5hbmRvQGdtYWlsLmNvbSJ9.5Y_800Hq9DXXYt0BWarSiL-I9oGUmpFTEiX5D1QMp3k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "offset",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "id_jarkom",
+							"value": "66120",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8088/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get last location",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtYWRnZW5zemF2ZXJuYW5kb0BnbWFpbC5jb20iLCJleHAiOjE3NjU0MjcxMzQsInJvbGVfaWQiOiIxIiwidXNlcmlkIjoiMzMwMyIsInVzZXJuYW1lIjoibW9oYW1hZGdlbnN6YXZlcm5hbmRvQGdtYWlsLmNvbSJ9.5Y_800Hq9DXXYt0BWarSiL-I9oGUmpFTEiX5D1QMp3k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "offset",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "id_jarkom",
+							"value": "66120",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8088/vehicles/B1234XYZ999999/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"vehicles",
+						"B1234XYZ999999",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get location History",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtYWRnZW5zemF2ZXJuYW5kb0BnbWFpbC5jb20iLCJleHAiOjE3NjU0MjcxMzQsInJvbGVfaWQiOiIxIiwidXNlcmlkIjoiMzMwMyIsInVzZXJuYW1lIjoibW9oYW1hZGdlbnN6YXZlcm5hbmRvQGdtYWlsLmNvbSJ9.5Y_800Hq9DXXYt0BWarSiL-I9oGUmpFTEiX5D1QMp3k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "offset",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "id_jarkom",
+							"value": "66120",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8088/vehicles/B1234XYZ999999/history?start=1715000000&end=1715009999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"vehicles",
+						"B1234XYZ999999",
+						"history"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1715000000"
+						},
+						{
+							"key": "end",
+							"value": "1715009999"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
