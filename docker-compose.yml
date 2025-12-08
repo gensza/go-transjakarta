@@ -1,0 +1,78 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: go-backend
+    restart: always
+    depends_on:
+      - postgres
+      - rabbitmq
+      - mosquitto
+    environment:
+      PORT: 8088
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASS: postgres
+      DB_NAME: db_go_transjakarta
+      MQTTX_HOST: tcp://mosquitto:1883
+      RABBITMQ_HOST: amqp://guest:guest@rabbitmq:5672/
+    ports:
+      - "8088:8088"
+    networks:
+      - fleetnet
+
+  postgres:
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fleetdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - fleetnet
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: rabbitmq-server
+    restart: always
+    ports:
+      - "5672:5672"     # AMQP
+      - "15672:15672"   # Dashboard UI
+    networks:
+      - fleetnet
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto-broker
+    restart: always
+    ports:
+      - "1883:1883"   # MQTT
+      - "9001:9001"   # WebSocket MQTT
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - fleetnet
+
+  consumer:
+    build: ./consumer
+    container_name: go-consumer
+    depends_on:
+      - rabbitmq
+    environment:
+      RABBITMQ_HOST: amqp://guest:guest@rabbitmq:5672/
+    networks:
+      - fleetnet
+
+volumes:
+  pgdata:
+
+networks:
+  fleetnet:
+    driver: bridge

@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"os"
 	"time"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
+	"github.com/joho/godotenv"
 )
 
 type Location struct {
@@ -48,7 +50,8 @@ func randomPointWithinRadius() (float64, float64) {
 
 func main() {
 
-	broker := "tcp://localhost:1883"
+	godotenv.Load()
+	broker := os.Getenv("MQTTX_HOST")
 	vehicleID := "B1234XYZ"
 
 	opts := mqtt.NewClientOptions()
