@@ -23,23 +23,7 @@
 				],
 				"body": {
 					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "offset",
-							"value": "0",
-							"type": "text"
-						},
-						{
-							"key": "limit",
-							"value": "100",
-							"type": "text"
-						},
-						{
-							"key": "id_jarkom",
-							"value": "66120",
-							"type": "text"
-						}
-					]
+					"formdata": []
 				},
 				"url": {
 					"raw": "http://localhost:8088/ping",
@@ -71,26 +55,10 @@
 				],
 				"body": {
 					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "offset",
-							"value": "0",
-							"type": "text"
-						},
-						{
-							"key": "limit",
-							"value": "100",
-							"type": "text"
-						},
-						{
-							"key": "id_jarkom",
-							"value": "66120",
-							"type": "text"
-						}
-					]
+					"formdata": []
 				},
 				"url": {
-					"raw": "http://localhost:8088/vehicles/B1234XYZ999999/location",
+					"raw": "http://localhost:8088/vehicles/B1234XYZ/location",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -98,7 +66,7 @@
 					"port": "8088",
 					"path": [
 						"vehicles",
-						"B1234XYZ999999",
+						"B1234XYZ",
 						"location"
 					]
 				}
@@ -121,26 +89,10 @@
 				],
 				"body": {
 					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "offset",
-							"value": "0",
-							"type": "text"
-						},
-						{
-							"key": "limit",
-							"value": "100",
-							"type": "text"
-						},
-						{
-							"key": "id_jarkom",
-							"value": "66120",
-							"type": "text"
-						}
-					]
+					"formdata": []
 				},
 				"url": {
-					"raw": "http://localhost:8088/vehicles/B1234XYZ999999/history?start=1715000000&end=1715009999",
+					"raw": "http://localhost:8088/vehicles/B1234XYZ/history?start=2025-12-08 08:17:58&end=2025-12-10 08:18:08",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -148,17 +100,17 @@
 					"port": "8088",
 					"path": [
 						"vehicles",
-						"B1234XYZ999999",
+						"B1234XYZ",
 						"history"
 					],
 					"query": [
 						{
 							"key": "start",
-							"value": "1715000000"
+							"value": "2025-12-08 08:17:58"
 						},
 						{
 							"key": "end",
-							"value": "1715009999"
+							"value": "2025-12-10 08:18:08"
 						}
 					]
 				}
