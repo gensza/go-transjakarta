@@ -4,7 +4,7 @@
 		"name": "transjakarta",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "13029874",
-		"_collection_link": "https://nominal-0566.postman.co/workspace/nominal-Workspace~9257ae2a-13cc-4116-adc0-6a6408e2dead/collection/13029874-50b5ed41-9bb3-4f1c-94f7-1a7315edb638?source=collection_link"
+		"_collection_link": "https://nominal-0566.postman.co/workspace/nominal-Workspace~9257ae2a-13cc-4116-adc0-6a6408e2dead/collection/13029874-50b5ed41-9bb3-4f1c-94f7-1a7315edb638?action=share&source=collection_link&creator=13029874"
 	},
 	"item": [
 		{
@@ -14,13 +14,7 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtYWRnZW5zemF2ZXJuYW5kb0BnbWFpbC5jb20iLCJleHAiOjE3NjU0MjcxMzQsInJvbGVfaWQiOiIxIiwidXNlcmlkIjoiMzMwMyIsInVzZXJuYW1lIjoibW9oYW1hZGdlbnN6YXZlcm5hbmRvQGdtYWlsLmNvbSJ9.5Y_800Hq9DXXYt0BWarSiL-I9oGUmpFTEiX5D1QMp3k",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "formdata",
 					"formdata": []
@@ -46,13 +40,7 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtYWRnZW5zemF2ZXJuYW5kb0BnbWFpbC5jb20iLCJleHAiOjE3NjU0MjcxMzQsInJvbGVfaWQiOiIxIiwidXNlcmlkIjoiMzMwMyIsInVzZXJuYW1lIjoibW9oYW1hZGdlbnN6YXZlcm5hbmRvQGdtYWlsLmNvbSJ9.5Y_800Hq9DXXYt0BWarSiL-I9oGUmpFTEiX5D1QMp3k",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "formdata",
 					"formdata": []
@@ -80,19 +68,13 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFtYWRnZW5zemF2ZXJuYW5kb0BnbWFpbC5jb20iLCJleHAiOjE3NjU0MjcxMzQsInJvbGVfaWQiOiIxIiwidXNlcmlkIjoiMzMwMyIsInVzZXJuYW1lIjoibW9oYW1hZGdlbnN6YXZlcm5hbmRvQGdtYWlsLmNvbSJ9.5Y_800Hq9DXXYt0BWarSiL-I9oGUmpFTEiX5D1QMp3k",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "formdata",
 					"formdata": []
 				},
 				"url": {
-					"raw": "http://localhost:8088/vehicles/B1234XYZ/history?start=2025-12-08 08:17:58&end=2025-12-10 08:18:08",
+					"raw": "http://localhost:8088/vehicles/B1234XYZ/history?start=1765289469&end=1765289479",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -106,11 +88,11 @@
 					"query": [
 						{
 							"key": "start",
-							"value": "2025-12-08 08:17:58"
+							"value": "1765289469"
 						},
 						{
 							"key": "end",
-							"value": "2025-12-10 08:18:08"
+							"value": "1765289479"
 						}
 					]
 				}

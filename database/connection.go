@@ -47,7 +47,7 @@ func ConnectPostgres() error {
 			vehicle_id VARCHAR(50) NOT NULL,
 			latitude DOUBLE PRECISION NOT NULL,
 			longitude DOUBLE PRECISION NOT NULL,
-			timestamp TIMESTAMP DEFAULT NOW()
+			timestamp BIGINT NOT NULL
 		);
 	`)
 	if err != nil {

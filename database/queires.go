@@ -2,7 +2,6 @@ package database
 
 import (
 	"context"
-	"time"
 )
 
 func GetLastLocation(vehicleID string) (*VehicleLocation, error) {
@@ -67,7 +66,7 @@ func SaveLocation(data VehicleLocation) error {
 		data.VehicleID,
 		data.Latitude,
 		data.Longitude,
-		time.Unix(data.Timestamp, 0),
+		data.Timestamp,
 	)
 
 	return err
