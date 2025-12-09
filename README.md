@@ -1,4 +1,4 @@
-🚍 sistem manajemen armada Transjakarta
+<h3>🚍 sistem manajemen armada Transjakarta</h3>
 
 sistem manajemen armada untuk Transjakarta, dibangun menggunakan Go (Golang), MQTT, PostgreSQL, RabbitMQ, dan Docker.
 Aplikasi ini menyediakan API untuk tracking lokasi kendaraan, riwayat pergerakan, geofence event, dan integrasi queueing.
@@ -6,57 +6,51 @@ Aplikasi ini menyediakan API untuk tracking lokasi kendaraan, riwayat pergerakan
 ✨ Features
 
 📡 Real-time vehicle tracking via MQTT <br>
-🕒 Location history API berdasarkan rentang waktu
-📍 Geofence detection + publish event ke RabbitMQ
-🐳 Docker Compose ready untuk deployment cepat
-⚡ Arsitektur terpisah: API Service, Consumer Service, Message Broker
+🕒 Location history API berdasarkan rentang waktu<br>
+📍 Geofence detection + publish event ke RabbitMQ<br>
+🐳 Docker Compose ready untuk deployment cepat<br>
+⚡ Arsitektur terpisah: API Service, Consumer Service, Message Broker<br>
 
-🧩 Requirements
+🧩 Requirements<br>
+Pastikan sudah terinstall:<br>
+Docker & Docker Compose<br>
+Go (Golang)<br>
+PostgreSQL<br>
+RabbitMQ<br>
+Postman / cURL untuk testing API<br>
 
-Pastikan sudah terinstall:
-Docker & Docker Compose
-Go (Golang)
-PostgreSQL
-RabbitMQ
-Postman / cURL untuk testing API
+🏁 Getting Started<br>
+1️⃣ Clone Repository<br>
+git clone https://github.com/Dominus39/transjakarta-fleet-management-system.git<br>
+cd transjakarta-fleet-management-system<br>
 
-🏁 Getting Started
+2️⃣ Setup Environment<br>
+Buat file .env di root:<br>
+DB_HOST=postgres<br>
+DB_PORT=5432<br>
+DB_USER=postgres<br>
+DB_PASS=postgres<br>
+DB_NAME=db_go_transjakarta<br>
+MQTTX_HOST=tcp://mosquitto:1883<br>
+MQTTX_CLIENT_ID=go-subscriber-1<br>
+RABBITMQ_HOST=amqp://guest:guest@rabbitmq:5672/<br>
 
-1️⃣ Clone Repository
+3️⃣ Run with Docker (Recommended)<br>
+docker-compose up --build<br>
+Docker Compose akan menjalankan:<br>
+PostgreSQL<br>
+RabbitMQ<br>
+Mosquitto MQTT Broker<br>
+Go Backend API<br>
+Go Publisher (MQTT → PostgreSQL → RabbitMQ)<br>
+Go Consumer (RabbitMQ → RabbitMQ Message Received)<br>
 
-git clone https://github.com/Dominus39/transjakarta-fleet-management-system.git
-cd transjakarta-fleet-management-system
-
-2️⃣ Setup Environment
-
-Buat file .env di root:
-DB_HOST=postgres
-DB_PORT=5432
-DB_USER=postgres
-DB_PASS=postgres
-DB_NAME=db_go_transjakarta
-MQTTX_HOST=tcp://mosquitto:1883
-MQTTX_CLIENT_ID=go-subscriber-1
-RABBITMQ_HOST=amqp://guest:guest@rabbitmq:5672/
-
-3️⃣ Run with Docker (Recommended)
-
-docker-compose up --build
-
-Docker Compose akan menjalankan:
-PostgreSQL
-RabbitMQ
-Mosquitto MQTT Broker
-Go Backend API
-Go Publisher (MQTT → PostgreSQL → RabbitMQ)
-Go Consumer (RabbitMQ → RabbitMQ Message Received)
-
-🧪 API Endpoints
-📍 Get Latest Vehicle Location
-GET /vehicles/:vehicle_id/location
-Contoh:
-GET http://localhost:8088/vehicles/B1234XYZ/location
-Response:
+🧪 API Endpoints<br>
+📍 Get Latest Vehicle Location<br>
+GET /vehicles/:vehicle_id/location<br>
+Contoh:<br>
+GET http://localhost:8088/vehicles/B1234XYZ/location<br>
+Response:<br>
 {
     "vehicle_id": "B1234XYZ",
     "latitude": -6.194372980268338,
@@ -64,11 +58,11 @@ Response:
     "timestamp": 1765289479
 }
 
-🕒 Get Vehicle Location History
-GET /vehicles/:vehicle_id/history?start=start&end=end
-Contoh:
-GET http://localhost:8088/vehicles/B1234XYZ/history?start=1765289469&end=1765289479
-Response:
+🕒 Get Vehicle Location History<br>
+GET /vehicles/:vehicle_id/history?start=start&end=end<br>
+Contoh:<br>
+GET http://localhost:8088/vehicles/B1234XYZ/history?start=1765289469&end=1765289479<br>
+Response:<br>
     "history": [
         {
             "vehicle_id": "B1234XYZ",
@@ -86,11 +80,12 @@ Response:
     "vehicle_id": "B1234XYZ"
 }
 
-🚨 Geofence Events
-Akan mengirim pesan ke RabbitMQ ketika kendaraan memasuki area geofence yang didefinisikan dengan:
-Latitude
-Longitude
-Radius (meter)
-Consumer mendeteksi event dan publish ke:
-Exchange: fleet.events
-Queue: geofence_alerts
+🚨 Geofence Events<br>
+Akan mengirim pesan ke RabbitMQ ketika kendaraan memasuki area geofence yang didefinisikan dengan:<br>
+Latitude<br>
+Longitude<br>
+Radius (meter)<br>
+
+Consumer mendeteksi event dan publish ke:<br>
+Exchange: fleet.events<br>
+Queue: geofence_alerts<br>
