@@ -2,17 +2,13 @@ package main
 
 import (
 	"log"
-	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/streadway/amqp"
 )
 
 func main() {
 
-	godotenv.Load()
-
-	conn, err := amqp.Dial(os.Getenv("RABBITMQ_HOST"))
+	conn, err := amqp.Dial("amqp://guest:guest@rabbitmq:5672/")
 	if err != nil {
 		panic(err)
 	}
@@ -40,6 +36,6 @@ func main() {
 
 	log.Println("Waiting for messages...")
 	for msg := range msgs {
-		log.Printf("Received: %s", msg.Body)
+		log.Printf("RabbitMQ Message Received: %s", msg.Body)
 	}
 }

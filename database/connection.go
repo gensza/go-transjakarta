@@ -37,6 +37,24 @@ func ConnectPostgres() error {
 	}
 
 	DB = pool
+
 	fmt.Println("PostgreSQL Connected!")
+
+	// AUTO MIGRATION
+	_, err = DB.Exec(context.Background(), `
+		CREATE TABLE IF NOT EXISTS vehicle_locations (
+			id SERIAL PRIMARY KEY,
+			vehicle_id VARCHAR(50) NOT NULL,
+			latitude DOUBLE PRECISION NOT NULL,
+			longitude DOUBLE PRECISION NOT NULL,
+			timestamp TIMESTAMP DEFAULT NOW()
+		);
+	`)
+	if err != nil {
+		return fmt.Errorf("failed to run migrations: %w", err)
+	}
+
+	fmt.Println("Migration OK: table vehicle_locations is ready.")
+
 	return nil
 }

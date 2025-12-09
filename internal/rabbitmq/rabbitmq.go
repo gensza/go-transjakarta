@@ -6,7 +6,7 @@ import "github.com/rabbitmq/amqp091-go"
 func Publish(event []byte) error {
 	return Channel.Publish(
 		"fleet.events",
-		"geofence.alert",
+		"geofence_alerts",
 		false,
 		false,
 		amqp091.Publishing{

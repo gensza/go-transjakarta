@@ -4,7 +4,6 @@ services:
   backend:
     build: .
     container_name: go-backend
-    restart: always
     depends_on:
       - postgres
       - rabbitmq
@@ -29,8 +28,8 @@ services:
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: fleetdb
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db_go_transjakarta
     ports:
       - "5432:5432"
     volumes:
@@ -67,6 +66,15 @@ services:
       - rabbitmq
     environment:
       RABBITMQ_HOST: amqp://guest:guest@rabbitmq:5672/
+    networks:
+      - fleetnet
+
+  publisher:
+    build:
+      context: ./mock
+    container_name: go-publisher
+    depends_on:
+      - mosquitto
     networks:
       - fleetnet
 

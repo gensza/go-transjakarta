@@ -1,0 +1,9 @@
+# mock/Dockerfile
+FROM golang:1.24-alpine AS builder
+
+WORKDIR /app
+COPY . .
+
+RUN go mod init publisher && go get github.com/eclipse/paho.mqtt.golang && go get github.com/joho/godotenv && go build -o publisher .
+
+CMD ["./publisher"]

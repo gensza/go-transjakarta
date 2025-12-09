@@ -2,17 +2,13 @@ package main
 
 import (
 	"log"
-	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/streadway/amqp"
 )
 
 func main() {
 
-	godotenv.Load()
-
-	conn, err := amqp.Dial(os.Getenv("RABBITMQ_HOST"))
+	conn, err := amqp.Dial("amqp://guest:guest@rabbitmq:5672/")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -1,8 +1,6 @@
 package rabbitmq
 
 import (
-	"os"
-
 	"github.com/rabbitmq/amqp091-go"
 )
 
@@ -12,7 +10,7 @@ var Channel *amqp091.Channel
 func Connect() error {
 	var err error
 
-	Conn, err = amqp091.Dial(os.Getenv("RABBITMQ_HOST"))
+	Conn, err = amqp091.Dial("amqp://guest:guest@rabbitmq:5672/")
 	if err != nil {
 		return err
 	}
@@ -25,7 +23,7 @@ func Connect() error {
 	// Declare exchange
 	return Channel.ExchangeDeclare(
 		"fleet.events",
-		"direct",
+		"fanout",
 		true,
 		false,
 		false,

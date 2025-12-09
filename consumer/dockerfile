@@ -14,3 +14,14 @@ WORKDIR /app
 COPY --from=builder /app/consumer .
 
 CMD ["./consumer"]
+
+
+
+FROM golang:1.23-alpine
+
+WORKDIR /app
+COPY . .
+
+RUN go mod init publisher && go get github.com/streadway/amqp && go get github.com/joho/godotenv && go build -o publisher .
+
+CMD ["./publisher"]
