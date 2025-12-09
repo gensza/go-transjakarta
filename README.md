@@ -11,6 +11,7 @@ Aplikasi ini menyediakan API untuk tracking lokasi kendaraan, riwayat pergerakan
 ⚡ Arsitektur terpisah: API Service, Consumer Service, Message Broker
 
 🧩 Requirements
+
 Pastikan sudah terinstall:
 Docker & Docker Compose
 Go (Golang)
@@ -19,6 +20,7 @@ RabbitMQ
 Postman / cURL untuk testing API
 
 🏁 Getting Started
+
 1️⃣ Clone Repository
 git clone https://github.com/Dominus39/transjakarta-fleet-management-system.git
 cd transjakarta-fleet-management-system
