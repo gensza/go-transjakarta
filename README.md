@@ -5,7 +5,7 @@ Aplikasi ini menyediakan API untuk tracking lokasi kendaraan, riwayat pergerakan
 
 ✨ Features
 
-📡 Real-time vehicle tracking via MQTT
+📡 Real-time vehicle tracking via MQTT <br>
 🕒 Location history API berdasarkan rentang waktu
 📍 Geofence detection + publish event ke RabbitMQ
 🐳 Docker Compose ready untuk deployment cepat
